@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate">
+    <meta name="keywords" content="This is an Application(AaaS) scaffolding" />
+    <meta http-equiv="expires" content="0">
+    
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="static/base-plugins/bootstrap-5.0.2-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/base-plugins/font-awesome-4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="static/base-plugins/bootstrap-icons-1.5.0/bootstrap-icons.css">
+    <link rel="stylesheet" href="static/base-plugins/jquery-ui-1.12.1/jquery-ui.css">
+    <!-- Our Custom CSS -->
+    <!--<link rel="stylesheet" href="css/flok_paas_style.css">-->
+    <!--<link rel="stylesheet" href="css/style_29-1.css">-->
+
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="static/base-plugins/jquery.mCustomScrollbar.min.css">
+    
+    <title>Micro service plugin framework</title>
+</head>
+<body id="managerbody">
+
+<!-- jQuery CDN - Slim version (=without AJAX) -->
+<script src="static/base-plugins/jquery-3.5.1.min.js"></script>
+<script src="static/base-plugins/jquery-ui-1.12.1/jquery-ui.js"></script>
+<!-- Popper.JS -->
+<script src="static/base-plugins/popper.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="static/base-plugins/bootstrap-5.0.2-dist/js/bootstrap.bundle.js"></script>
+<!-- jQuery Custom Scroller CDN -->
+<script src="static/base-plugins/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="static/base-plugins/md5.js"></script>
+<script src="static/js/common/extendjs.js"></script>
+<script src="static/js/common/dom_utils.js"></script>
+<script src="static/js/common/utils.js"></script>
+<script src="static/js/common/services.js"></script>
+
+<script>
+    var managerbody = document.getElementById("managerbody");
+    var service = new Service("master");
+    var jspath = "static/js/plugins/";
+    var cpath = "static/js/common/";
+    DomUtils.dynamicLoadScript(jspath + "MasterIndexPlugin.js", function(){
+        new MasterIndexPlugin(managerbody, {
+        });
+    });
+
+</script>
+
+
+</body>
+</html>
