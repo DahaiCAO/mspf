@@ -1,4 +1,4 @@
-# Micro service plugin framework (Mspf)
+# Micro Service Plugin framework (Mspf)
 
 Current version 0.1.0
 
@@ -14,7 +14,7 @@ Features:
 </ul>
 Deployment requirements:
 
-This framework can run at windows and linux operation platform, the platform needs to install python environments.
+This framework can run at Windows and Linux operation platform, the platform needs to install python environments.
 <ul>
 <li>Python 3.9</li>
 <li>Django-3.2.4:<br>
