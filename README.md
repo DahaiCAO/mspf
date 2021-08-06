@@ -15,14 +15,14 @@ Features:
 Deployment requirements:
 
 This framework can run at windows and linux operation platform, the platform needs to install python environments.
-
-Python 3.9
-Django-3.2.4:
-   pip install django
-Watchdog 2.1.3:
-   pip install watchdog
-Configparser-5.0.2:
-   pip install configparser
-Python-socketio: 
-   pip install python-socketio
-   
+<ul>
+<li>Python 3.9</li>
+<li>Django-3.2.4:<br>
+   pip install django</li>
+<li>Watchdog 2.1.3:<br>
+   pip install watchdog</li>
+<li>Configparser-5.0.2:<br>
+   pip install configparser</li>
+<li>Python-socketio: <br>
+   pip install python-socketio</li>
+</ul>
