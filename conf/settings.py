@@ -19,22 +19,11 @@ from . import globalVal
 from django.core.management.commands.runserver import Command as runserver
 
 cf = configparser.ConfigParser()
-filename = cf.read(os.path.dirname(__file__)+"/config.ini")  # 读取配置文件，如果写文件的绝对路径，就可以不用os模块
+filename = cf.read(os.path.dirname(__file__)+"/config.ini") 
 
-# secs = cf.sections()  # 获取文件中所有的section(一个配置文件中可以有多个配置，如数据库相关的配置，邮箱相关的配置，
-#                       #  每个section由[]包裹，即[section])，并以列表的形式返回
-# print(secs)
-# options = cf.options("server")  # 获取某个section名为user1所对应的键
-# print(options)
-# items = cf.items("server")  # 获取section名为user1所对应的全部键值对
-# print(items)
-# name = cf.get("server", "server_port")  # 获取user1中user_name对应的值
-# print(name)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
-#print("m主程序第二个执行：settings.py")
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -58,7 +47,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',     #message框架
     'django.contrib.staticfiles',  #静态文件管理框架
     'PluginMaster',
-    #'plugins.SP_1415482859229159424',
 ]
 
 # dynamic add plugins
@@ -66,9 +54,6 @@ for plugin_name in os.listdir(globalVal.PLUGINS_DIR):
     if os.path.isdir(os.path.join(globalVal.PLUGINS_DIR, plugin_name)):
         if 'plugins.'+plugin_name not in INSTALLED_APPS:
             INSTALLED_APPS.append('plugins.'+plugin_name)
-
-for app in INSTALLED_APPS:
-    print(app)
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -80,7 +65,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-#ROOT_URLCONF = 'PaaSPluginFwk.urls'
 ROOT_URLCONF = 'conf.urls'
 
 TEMPLATES = [
@@ -101,7 +85,6 @@ TEMPLATES = [
     },
 ]
 
-#WSGI_APPLICATION = 'PaaSPluginFwk.wsgi.application'
 WSGI_APPLICATION = 'conf.wsgi.application'
 
 # Database
@@ -137,31 +120,18 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-#LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'zh-hans' # 'en-us'
 
-LANGUAGE_CODE = 'zh-hans'  # 指定语言（注意不要写错，否则无法启动服务器）
-
-TIME_ZONE = 'Asia/Shanghai'
-
-#TIME_ZONE = 'UTC'
-
+TIME_ZONE = 'Asia/Shanghai' # 'UTC'
 USE_I18N = True
-
 USE_L10N = True
-
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-# 这个static 是在Django 具体APP下建立的static目录，用来存放静态资源
 STATIC_URL = '/static/'
 
-# BASE_DIR 是项目的绝对地址
-# STATIC_ROOT = os.path.join(BASE_DIR, 'collect_static')
-
-#STATICFILES_DIRS一般用来设置通用的静态资源，对应的目录不放在APP下，而是放在Project下
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'common_static'),)
 
 # Default primary key field type

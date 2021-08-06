@@ -138,7 +138,6 @@ class PluginHelper():
                 flag = ''
                 for app in urls.urlpatterns:
                     if isinstance(app, URLResolver):
-                        #print('\n'.join(['%s:%s' % item for item in app.__dict__.items()]))
                         if app.pattern.regex is re.compile("^"+plugin+"/"):
                             flag = True
                             break
@@ -149,9 +148,6 @@ class PluginHelper():
 
         self.logger.info("registed plugin app: {0}".format(plugin))
 
-        for app in settings.INSTALLED_APPS:
-            print(app)
-
     def writeoffPlugin(self, plugin_name):
         plugin = 'plugins.'+plugin_name
         for app in settings.INSTALLED_APPS:
@@ -160,32 +156,20 @@ class PluginHelper():
         
         urls = import_module(settings.ROOT_URLCONF)
         for app in urls.urlpatterns:
-            if isinstance(app, URLPattern):  # 非路由分发
-                # 打印所有属性
-                #print('\n'.join(['%s:%s' % item for item in app.__dict__.items()]))
+            if isinstance(app, URLPattern):
                 pass
             elif isinstance(app, URLResolver):
-                #print('\n'.join(['%s:%s' % item for item in app.__dict__.items()]))
                 if app.pattern.regex is re.compile("^"+plugin+"/"):
                     urls.urlpatterns.remove(app)
                     break
 
         self.logger.info("wrote off plugin app: {0}".format(plugin))
 
-        for app in settings.INSTALLED_APPS:
-            print(app)
-        for app in urls.urlpatterns:
-            print(app)
-
-    """
-        this function will convert bytes to MB.... GB... etc
-    """
     def convert_bytes(self, num):
         for x in ['bytes', 'KB', 'MB', 'GB', 'TB']:
             if num < 1024.0:
                 return "%3.0f %s" % (num, x)
             num /= 1024.0
-
 
     def getFoldersFiles(self, plugins_folder, plugin_folder, children):
         for path, dirNames, fileNames in os.walk(plugins_folder + os.sep + plugin_folder):
@@ -321,12 +305,3 @@ class PluginHelper():
         finally:
             f.close()
 
-
-
-# if __name__ == "__main__":
-#     helper = PluginHelper()
-#     globalVal.ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))
-#     globalVal.PLUGINS_DIR = os.path.join(globalVal.ROOT_DIR, "plugins")
-#     worker = IdWorker(1, 2, 0)
-#     key = "SP_" + str(worker.get_id())
-#     helper.createPluginSpace(globalVal.PLUGINS_DIR, key)

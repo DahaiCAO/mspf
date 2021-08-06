@@ -17,7 +17,6 @@ from django.contrib import admin
 from django.urls import path
 from PluginMaster import views
 from django.conf.urls import url, include
-import os
 from django.conf import settings
 from importlib import import_module
 
@@ -30,7 +29,6 @@ urlpatterns = [
     path('download/', views.download),
 
     url(r'^master/', include('PluginMaster.urls')),
-    #url(r'^aaa/', include('plugins.SP_1415482859229159424.urls')),
 ]
 
 # dynamic add plugins to url patterns
@@ -42,8 +40,3 @@ for app in settings.INSTALLED_APPS:
             pass
         else:
             urlpatterns.append(url(r'^%s/' %app, include('%s.urls' % app)))
-
-for app in urlpatterns:
-    print(app)
-
-#print("m主程序第三个执行:urls.py")

@@ -23,7 +23,6 @@ def pluginIndex(request):
 def pluginExample(request):
     return render(request, 'plugin_example.html')
 
-# 打开代码编辑器
 def pluginEditor(request):
     return render(request, 'plugin_editor.html')
 
@@ -35,10 +34,8 @@ def download(request):
 
 @csrf_exempt
 def uploadPluginZipFile(request):
-    # 请求方法为POST时，进行处理
     if request.method == "POST":
         request.encoding = "utf-8"
-        # 获取上传的文件，如果没有文件，则默认为None
         file = request.FILES.get("file", None)
         fileName = request.POST.get("filename", "",)
         fileName = unquote(fileName)
@@ -46,20 +43,15 @@ def uploadPluginZipFile(request):
         if file is None:
             return JsonResponse({ 'status' : '1', 'message': '文件不存在' })
         else:
-            #打开特定的文件进行二进制的写操作
             with open(globalVal.PLUGINS_DIR+"/"+fileName, 'wb+') as f:
-                 #分块写入文件
                  for chunk in file.chunks():
                      f.write(chunk)
-            # 解压压缩包文件
             with zipfile.ZipFile(globalVal.PLUGINS_DIR+"/"+fileName) as zf:
                 zf.extractall(path=globalVal.PLUGINS_DIR)
-            # 解压完后，顺手删除压缩包文件
             if os.path.exists(globalVal.PLUGINS_DIR+"/"+fileName): # 压缩包文件也删除
                 os.unlink(globalVal.PLUGINS_DIR+"/"+fileName)
             record = Plugin.objects.filter(id=fileName[0:-4])
             if not record.exists():
-                # 添加一个插件
                 Plugin.objects.create(id=fileName[0:-4], 
                     name="新上传的插件："+fileName[0:-4], 
                     developer="dev", 
@@ -85,12 +77,6 @@ def uploadPluginZipFile(request):
     else:
         return JsonResponse({ 'status' : '1' })
 
-"""
-    对目录进行深度优先遍历
-    :param input_path:
-    :param result:
-    :return:
-"""
 def get_zip_file(input_path, result):
     files = os.listdir(input_path)
     for file in files:
@@ -103,98 +89,10 @@ def zip_plugin(plugins_folder, plugin_folder):
     filelists = []
     get_zip_file(plugins_folder + os.sep + plugin_folder, filelists)
     for file in filelists:
-        fpath = file.replace(plugins_folder, '') # 去掉绝对路径中，保留相对路径
+        fpath = file.replace(plugins_folder, '')
         f.write(file, fpath)
-    # 调用了close方法才会保证完成压缩
     f.close()
     return plugins_folder + os.sep + plugin_folder+".zip"
-
-"""
-    压缩文件
-    :param input_path: 压缩的文件夹路径
-    :param output_path: 解压（输出）的路径
-    :param output_name: 压缩包名称
-    :return:
-"""
-# def zip_file_path(input_path, output_path, output_name):
-#     f = zipfile.ZipFile(output_path + '/' + output_name, 'w', zipfile.ZIP_DEFLATED)
-#     filelists = []
-#     get_zip_file(input_path, filelists)
-#     for file in filelists:
-#         #name = fpath + '\\' + name
-#         f.write(file, )
-#     # 调用了close方法才会保证完成压缩
-#     f.close()
-#     return output_path + r"/" + output_name
-
-# '''
-#     压缩绝对路径
-# 	:param abspath:         压缩的文件夹的绝对路径
-# 	:param cust_output:     输出路径  可选
-# 	:param output_name:     输出文件名
-# 	:return:		        压缩文件的保存路径。	
-# '''
-# def zip_file_abspath(abspath, output_name,cust_output=''):
-# 	path=abspath
-# 	os.chdir(path)
-# 	output_path=os.path.abspath(os.path.join(os.getcwd(), ".."))
-# 	os.chdir(output_path)
-# 	for i in os.listdir():
-# 		if i==path.split('\\')[-1] or i==path.split('/')[-1]:
-# 			input_path = '.\\' + i
-# 			if cust_output!='':
-# 				return zip_file_abspath(input_path,cust_output,output_name)
-# 			else:
-# 				return zip_file_path(input_path,output_path,output_name)
-
-
-# def print_files(path):
-#     lsdir = os.listdir(path)
-#     dirs = [i for i in lsdir if os.path.isdir(os.path.join(path, i))]
-#     if dirs:
-#         for i in dirs:
-#             print_files(os.path.join(path, i))
-#     files = [i for i in lsdir if os.path.isfile(os.path.join(path,i))]
-#     #for f in files:  #列出所有文件(包括子目录下的文件)
-#     for f in dirs:    #列出所有目录(包括子目录下的目录)
-#         sss = (os.path.join(path, f))
-#         if os.path.isdir(sss): #判断路径是否为目录
-#             print (sss)  
-#     return
-
-# def backupZip(plugins_folder, plugin_folder):                                #这个函数只做文件夹打包的动作，不判断压缩包是否存在             
-#     zipfile_name = plugins_folder + r"/" + plugin_folder + '.zip'    #压缩包和文件夹同名
-#     with zipfile.ZipFile(zipfile_name, 'w') as zfile:           #以写入模式创建压缩包
-#         for foldername, subfolders, files in os.walk(plugins_folder + r"/" + plugin_folder):    #遍历文件夹
-#             print('Adding files in ' + foldername +'...')
-#             zfile.write(foldername)
-#             for i in files:
-#                 zfile.write(os.path.join(foldername,i))
-#                 print('Adding ' + i)
-
-'''
-    :param folderPath: 文件夹路径
-    :param compressPathName: 压缩包路径
-    :return:
-'''
-# def compressFolder(plugins_folder, plugin_folder, zipFileName):
-#     zipfile_name = plugins_folder + os.sep + zipFileName
-#     zip = zipfile.ZipFile(zipfile_name, 'w', zipfile.ZIP_DEFLATED)
-#     for path, dirNames, fileNames in os.walk(plugins_folder + "/" + plugin_folder):
-#         # print('dirNames: ' + dirNames)
-#         for name in dirNames:
-#             print("dirs name:"+path + os.sep + name)
-#             zip.write(path + os.sep + name, name)
-#         for name in fileNames:
-#             print("file name:"+path + os.sep + name)
-#             # fullName = os.path.join(path, name) #.decode(encoding='gbk')
-#             # print("fullName:"+fullName)
-#             # name = fpath + os.sep + name
-#             # print("name1:"+name)
-#             zip.write(path + os.sep + name, name)
-#     zip.close()
-
-
 
 @csrf_exempt
 def downloadPluginZipFile(request):
@@ -303,10 +201,6 @@ def getAllPlugins(request):
       json_dict['license'] = i.license
       plugins.append(json_dict)
 
-    # 这里safe默认为True，只接受参数为dict字典类型，
-    # 非dict类型---“报错：In order to allow non-dict objects to be 
-    # serialized set the safe parameter to False.” 
-    # safe=False之后list列表, tuple元祖, set集合就都可以
     return JsonResponse(plugins,safe=False)
 
 def getPlugin(request):
@@ -346,9 +240,8 @@ def zip_file_path(plugins_folder, plugin_folder):
     filelists = []
     get_zip_file(plugins_folder + os.sep + plugin_folder, filelists)
     for file in filelists:
-        fpath = file.replace(plugins_folder, '') # 去掉绝对路径中，保留相对路径
+        fpath = file.replace(plugins_folder, '')
         f.write(file, fpath)
-    # 调用了close方法才会保证完成压缩
     f.close()
     return plugins_folder + os.sep + plugin_folder + ".zip"
 
@@ -467,16 +360,14 @@ def saveFile(request):
     helper.saveFile(globalVal.PLUGINS_DIR + os.sep + filePath, fileContent);
     return JsonResponse({ 'status' : '0' })
 
-#定义一个函数，用来启动服务器
 def start(request):
-    a = request.GET   #获取get()请求
+    a = request.GET
     start = a.get('start')
     print(start)
     return JsonResponse({'status':'启动成功'})
 
-#定义一个函数，用来停止服务器
 def stop(request):
-    a = request.GET   #获取get()请求
+    a = request.GET
     stop = a.get('stop')
     print(stop)
     return JsonResponse({'status':'停止成功'})
