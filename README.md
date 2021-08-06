@@ -28,4 +28,4 @@ This framework can run at Windows and Linux operation platform, the platform nee
 </ul>
 
 Download mspf all in one project: 
-<a href="common_html/downloads/PaaSPluginFwk.zip">download</a>
+<a href="https://github.com/swinflowcloud/mspf/tree/main/common_html/downloads/PaaSPluginFwk.zip">download</a>
