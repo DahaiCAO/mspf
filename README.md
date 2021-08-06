@@ -26,3 +26,6 @@ This framework can run at Windows and Linux operation platform, the platform nee
 <li>Python-socketio: <br>
    pip install python-socketio</li>
 </ul>
+
+Download mspf all in one project: 
+<a href="common_html/downloads/PaaSPluginFwk.zip">download</a>
