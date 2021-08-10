@@ -7,22 +7,8 @@ from django.views.decorators.csrf import csrf_exempt
 # this file is similar to controllers in srpingmvc or springboot
 # Create your views here.
 def pluginIndex(request):
-    import threading
-    # 1 获取线程ID,NAME
-    t = threading.currentThread()
-    #线程ID
-    print('Thread id : %d' % t.ident)
-    #线程NAME
-    print('Thread name : %s' % t.getName())
-    return HttpResponse('Hi, this is a plugin------------!')
+    return HttpResponse('Hi, this is a plugin.')
 
 def hello(request):
-    import threading
-    # 1 获取线程ID,NAME
-    t = threading.currentThread()
-    #线程ID
-    print('Thread id : %d' % t.ident)
-    #线程NAME
-    print('Thread name : %s' % t.getName())
-    return HttpResponse('Hi, This is Cao Dahai!-------------')
+    return HttpResponse('Hi, This is Mspf')
 
