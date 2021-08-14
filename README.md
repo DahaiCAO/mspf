@@ -28,10 +28,13 @@ This framework can run at Windows and Linux operation platform, the platform nee
 </ul>
 
 0.1.0
-(1) released the basic version based on Django
-(2) can support the python code editing
-
+<ul>
+<li>(1) released the basic version based on Django</li>
+<li>(2) can support the python code editing</li>
+</ul>
 
 0.1.1
-(1) fixed the code editor bugs
-(2) completed the user mannual for development
+<ul>
+<li>(1) fixed the code editor bugs</li>
+<li>(2) completed the user mannual for development</li>
+</ul>
