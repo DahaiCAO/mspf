@@ -36,7 +36,7 @@
         this._pluginType = "";
         this._keywords = "";
         this._description = "这个左侧菜单插件是专门针对文件管理树而开发的一个插件，"+
-                            "能够以树形结构形式展示一个目录下的所有的文件夹和文件。";
+                            "能够以树形结构形式展示一个目录下的所有的目录和文件。";
         this._version = "1.0 based on plugin template 7.0";
         this._copyright = "";
         // default settings for options
@@ -93,25 +93,25 @@
 
             var addButtonUl = DomUtils.createButtonGroup(toolbar, "btn-primary", 
                 "bi bi-plus", " 新建", true);
-            this.liItem1 = DomUtils.createDropdownItem(addButtonUl, "bi bi-folder-plus", "#", " 新建文件夹");
+            this.liItem1 = DomUtils.createDropdownItem(addButtonUl, "bi bi-folder-plus", "#", " 新建目录");
             this.liItem1.addEventListener("click", this, false);
             this.liItem2 = DomUtils.createDropdownItem(addButtonUl, "bi bi-file-earmark-plus", "#", " 新建文件");
             this.liItem2.addEventListener("click", this, false);
 
             this.refreshButton = DomUtils.createButton(toolbar,
-                "btn-success", "bi bi-arrow-clockwise", " 刷新", "刷新所有的文件或文件夹");
+                "btn-success", "bi bi-arrow-clockwise", " 刷新", "刷新所有的文件或目录");
             this.refreshButton.addEventListener("click", this, false);
 
             this.copyButton = DomUtils.createButton(toolbar,
-                "btn-primary", "bi bi-clipboard", " 拷贝", "拷贝一个文件或文件夹到另一个文件夹");
+                "btn-primary", "bi bi-clipboard", " 拷贝", "拷贝一个文件或目录到另一个目录");
             this.copyButton.addEventListener("click", this, false);
 
             this.moveButton = DomUtils.createButton(toolbar,
-                "btn-primary", "bi bi-box-arrow-in-up-right", " 移动", "移动文件或文件夹到另一个文件夹");
+                "btn-primary", "bi bi-box-arrow-in-up-right", " 移动", "移动文件或目录到另一个目录");
             this.moveButton.addEventListener("click", this, false);
 
             this.renameButton = DomUtils.createButton(toolbar,
-                "btn-primary", " bi bi-pencil-square", " 重命名", "重新命名文件或文件夹");
+                "btn-primary", " bi bi-pencil-square", " 重命名", "重新命名文件或目录");
             this.renameButton.addEventListener("click", this, false);
 
             // create toolbar for searching ...
@@ -382,7 +382,7 @@
             if (item.id != this._settings.currId) {
                 var liASpanC = DomUtils.newelement(parent, "span");
                 liASpanC.className = "text-white fa fa-cloud-download me-1";
-                liASpanC.setAttribute("title", "下载该文件或文件夹中文件");
+                liASpanC.setAttribute("title", "下载该文件或目录中文件");
                 var that = this;
                 liASpanC.addEventListener("click", function (e) {
                     var downplugin = new DownloadAction(that._settings.downloadUrl);
@@ -390,7 +390,7 @@
                 }, false);
                 var liASpanB = DomUtils.newelement(parent, "span");
                 liASpanB.className = "text-danger fa fa-trash";
-                liASpanB.setAttribute("title", "删除文件或文件夹");
+                liASpanB.setAttribute("title", "删除文件或目录");
                 liASpanB.addEventListener("click", function (e) {
                     that.selectedNode = item;
                     DomUtils.dynamicLoadScript(cjspath + "confirm_dialog_plugin.js", function(){

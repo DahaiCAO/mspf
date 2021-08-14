@@ -5,4 +5,4 @@ from django.apps import AppConfig
 class PluginmasterConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
     name = 'PluginMaster'
-    version = '0.0.1'
+    version = '0.1.0'

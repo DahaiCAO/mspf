@@ -55,6 +55,9 @@ for plugin_name in os.listdir(globalVal.PLUGINS_DIR):
         if 'plugins.'+plugin_name not in INSTALLED_APPS:
             INSTALLED_APPS.append('plugins.'+plugin_name)
 
+for app in INSTALLED_APPS:
+    print(app)
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',

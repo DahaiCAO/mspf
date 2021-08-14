@@ -40,3 +40,6 @@ for app in settings.INSTALLED_APPS:
             pass
         else:
             urlpatterns.append(url(r'^%s/' %app, include('%s.urls' % app)))
+
+for app in settings.INSTALLED_APPS:
+    print(app)

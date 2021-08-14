@@ -143,8 +143,6 @@ class PluginHelper():
                             break
                 if flag == '':
                     urls.urlpatterns.append(url(r'^%s/' % plugin, include('%s.urls' % plugin)))
-                    for app in urls.urlpatterns:
-                        print(app)
 
         self.logger.info("registed plugin app: {0}".format(plugin))
 
@@ -252,7 +250,6 @@ class PluginHelper():
     def newFolderFile(self, parent_folder, type, name):
         parentFolder = parent_folder + os.sep + name
         path = os.path.join(globalVal.PLUGINS_DIR, parentFolder)
-        print(path)
         if (int(type) == 1): # new folder
             self.createPath(path)
         elif (int(type) == 0): # new file
@@ -277,9 +274,6 @@ class PluginHelper():
         return folders
 
     def copyMoveTo(self, src_file_folder_name, dist_folder_name, operation):
-        print(src_file_folder_name)
-        print(dist_folder_name)
-        print(operation)
         if (operation == "moveto"):
             shutil.move(src_file_folder_name, dist_folder_name)
         elif (operation == "copyto"):
@@ -290,18 +284,22 @@ class PluginHelper():
                 shutil.copytree(src_file_folder_name, dist_folder_name + os.sep + dst, dirs_exist_ok=True)
 
     def openFile(self, src_file_path):
-        f = open(src_file_path, "r", encoding="utf8")
-        file_context = ""
-        try:
-            file_context = f.read()
-        finally:
-            f.close()
-        return file_context
+        if os.path.exists(src_file_path) and os.path.isfile(src_file_path): 
+            f = open(src_file_path, "r", encoding="utf8")
+            file_context = ""
+            try:
+                file_context = f.read()
+            finally:
+                f.close()
+            return file_context
+        else:
+            return ""
 
-    def saveFile(self, filePath, fileContent):
-        f = open(filePath, "w", encoding="utf8")
-        try:
-            f.write(fileContent)
-        finally:
-            f.close()
+    def saveFile(self, file_path, file_content):
+        if os.path.exists(file_path) and os.path.isfile(file_path): 
+            f = open(file_path, "w", encoding="utf8")
+            try:
+                f.write(file_content)
+            finally:
+                f.close()
 

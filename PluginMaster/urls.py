@@ -24,5 +24,3 @@ urlpatterns = [
     path('service/s0/api15/', views.openFile), # open a file to edit
     path('service/s0/api16/', views.saveFile), # save a file automatically
 ]
-
-#print("master程序第三个执行:urls.py")

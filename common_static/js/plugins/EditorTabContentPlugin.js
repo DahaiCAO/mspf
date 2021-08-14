@@ -104,33 +104,28 @@
             // create a tab header
             var li = DomUtils.newelement(parent, "li");
             DomUtils.insertElement(parent, li, this.dropdown);
-            li.className = "nav-item";
+            li.className = "nav-item d-flex flex-row";
             li.setAttribute("role", "presentation");
 
-            var button = DomUtils.newelement(li, "button");
-            button.className = "nav-link active " + icon;
-            button.type = "button";
-            button.id = id + "-tab";
-            button.setAttribute("data-bs-toggle", "tab");
-            button.setAttribute("data-bs-target", "#" + id);
-            button.setAttribute("role", "tab");
-            button.setAttribute("aria-controls", id);
-            button.setAttribute("aria-selected", "true");
+            var a = DomUtils.newelement(li, "a");
+            a.className = "nav-link " + icon;
+            a.id = id + "-tab";
+            a.setAttribute("aria-obj-id", id);
+
+            var label = DomUtils.newelement(a, "span");
+            label.innerHTML = tabtext;
+            label.className = "px-1";
+            label.setAttribute("tab-id", id);
             var that = this;
-            button.addEventListener('click', function (e) {
+            label.addEventListener('click', function (e) {
                 var c = e.target // newly activated tab
                 //var p = event.relatedTarget // previous active tab
-                var ccid = this.getAttribute("aria-controls");
+                var ccid = this.getAttribute("tab-id");
                 that._currTabId = ccid;
                 that.selectTab(ccid);
             }, false);
 
-            var label = DomUtils.newelement(button, "span");
-            label.innerHTML = tabtext;
-            label.id = id + "-tabhead";
-            label.className = "px-1";
-
-            var closei = DomUtils.newelement(button, "i");
+            var closei = DomUtils.newelement(a, "i");
             closei.className = "fa fa-times text-danger";
             closei.setAttribute("aria-hidden", "true");
             closei.id = "cl_" + id;
@@ -145,7 +140,7 @@
         createTabContent: function(parent, pluginPath, grants, id, context, theme) {
             // create a tab content
             var tabPane = DomUtils.newelement(parent, "div");
-            tabPane.className = "tab-pane fade show active";
+            tabPane.className = "tab-pane fade";
             tabPane.id = "M" + id;
             tabPane.setAttribute("aria-obj-id", id);
             tabPane.setAttribute("role", "tabpanel");
@@ -171,7 +166,7 @@
             return tabPane;
         },
         closeAllTab : function() {
-            var ul = document.querySelector("#mainTabNav");
+            var ul = this.tabNav;
             // remove tab header
             var child = ul.firstElementChild;
             while (child) {
@@ -183,7 +178,7 @@
                 }
             }
             // remove tab content
-            var cont = document.querySelector("#mainTabContent");
+            var cont = this.tabContent;
             while (cont.lastElementChild) {
                 var cid = cont.lastElementChild.getAttribute("aria-obj-id");
                 delete map[cid];
@@ -191,7 +186,7 @@
             }
         },
         closeCurrTab : function() {
-            var ul = document.querySelector("#mainTabNav");
+            var ul = this.tabNav;
             var list = ul.children;
             var siblingId = "";
             // remove tab header
@@ -203,8 +198,7 @@
                 }
             }
             // remove tab content
-            var cont = document.querySelector("#mainTabContent");
-            var list1 = cont.children;
+            var list1 = this.tabContent.children;
             for(var j = 0; j < list1.length; j++) {
                 var id = list1[j].getAttribute("aria-obj-id");
                 if (id == this._currTabId) {
@@ -217,16 +211,16 @@
             // selects the previous or next sibling tab before removing if exsiting two or more tabs
             if (list.length >= 2) {
                 if (i == list.length - 1) {
-                    siblingId = list[i - 1].children[0].getAttribute("aria-controls");
+                    siblingId = list[i - 1].children[0].getAttribute("aria-obj-id");
                 } else {
-                    siblingId = list[i].children[0].getAttribute("aria-controls");
+                    siblingId = list[i].children[0].getAttribute("aria-obj-id");
                 }
                 this.selectTab(siblingId);
             }
         },
         refreshAllTabs : function() {
             // refresh all tab contents
-            var cont = document.querySelector("#mainTabContent");
+            var cont = this.tabContent;
             var list1 = cont.children;
             for(var j = 0; j < list1.length; j++) {
                 var cid = list1[j].getAttribute("aria-obj-id");
@@ -236,7 +230,7 @@
             }
         },
         closeTab : function(id) {
-            var ul = document.querySelector("#mainTabNav");
+            var ul = this.tabNav;
             var list = ul.children;
             var siblingId = "";
             // remove tab header
@@ -249,12 +243,11 @@
                 }
             }
             // remove tab content
-            var cont = document.querySelector("#mainTabContent");
-            var list1 = cont.children;
+            var list1 = this.tabContent.children;
             for(var j = 0; j < list1.length; j++) {
                 var cid = list1[j].getAttribute("aria-obj-id");
                 if (cid == id) {
-                    cont.removeChild(list1[j]);
+                    this.tabContent.removeChild(list1[j]);
                     delete map[id];
                     break;
                 }
@@ -263,35 +256,46 @@
             // selects the previous or next sibling tab before removing if exsiting two or more tabs
             if (list.length >= 2) {
                 if (i == list.length - 1) {
-                    siblingId = list[i - 1].children[0].getAttribute("aria-controls");
+                    siblingId = list[i - 1].children[0].getAttribute("aria-obj-id");
                 } else {
-                    siblingId = list[i].children[0].getAttribute("aria-controls");
+                    siblingId = list[i].children[0].getAttribute("aria-obj-id");
                 }
                 this.selectTab(siblingId);
             }
         },
         selectTab: function(id) {
-            var ul = document.querySelector("#mainTabNav");
-            var list = ul.children;
+            var list = this.tabNav.children;
+            var list1 = this.tabContent.children;
             // remove active from tab headers
             for(var i = 0; i < list.length-1; i++) {
-                list[i].classList.remove("active");
-            }
-            // add  active to tab header
-            for(var i = 0; i < list.length-1; i++) {
-                if (list[i].children[0].id == id + "-tab") {
-                    if (!list[i].classList.contains("active")) {
-                        list[i].classList.add("active");
-                    }
-                }
+                list[i].children[0].classList.remove("active");
             }
             // remove active from tab contents
-            var cont = document.querySelector("#mainTabContent");
-            var list1 = cont.children;
             for(var j = 0; j < list1.length; j++) {
                 if (list1[j].classList.contains("active")) {
                     list1[j].classList.remove("active");
-                } 
+                    list1[j].classList.remove("show");
+                }
+            }
+            // add  active to tab header
+            // var head = document.getElementById(id + "-tab");
+            // if (!head.classList.contains("active")) {
+            //     head.classList.add("active");
+            // }
+            // var tab = document.getElementById("M" + id);
+            // if (!tab.classList.contains("active")) {
+            //     tab.classList.add("active");
+            //     tab.classList.add("show");
+            // }
+            for(var i = 0; i < list.length-1; i++) {
+                if (list[i].children[0].id == id + "-tab") {
+                    if (!list[i].children[0].classList.contains("active")) {
+                        list[i].children[0].classList.add("active");
+                        //list[i].children[0].setAttribute("aria-selected", "true");
+                        //console.log(list[i].children[0]);
+                        break;
+                    }
+                }
             }
             // add  active to tab content
             for(var j = 0; j < list1.length; j++) {
@@ -299,9 +303,13 @@
                 if (cid == id) {
                     if (!list1[j].classList.contains("active")) {
                         list1[j].classList.add("active");
+                        list1[j].classList.add("show");
+                        //console.log(list1[j]);
+                        break;
                     } 
                 }
             }
+
         },
         updateTabHead : function(currId, name) {
             var header = document.getElementById(currId+"-tabhead");

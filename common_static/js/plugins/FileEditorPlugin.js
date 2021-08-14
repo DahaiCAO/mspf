@@ -30,6 +30,7 @@
         // default settings for options
         this._settings = extend({}, defaults, options);
         map[this._settings.currId] = this;
+
         this._element = element;
         this.init();
     };
@@ -37,7 +38,7 @@
     FileEditorPlugin.prototype = {
         constructor: this || (0, eval)('this'),
         init: function() {
-            this.content = DomUtils.newelement(this._element, "pre");
+            this.content = DomUtils.newelement(this._element, "DIV");
             this.content.id = "editor" + this._settings.currId;
             this.content.style.minHeight = this._settings.height;
             this.editor = ace.edit("editor" + this._settings.currId);
@@ -100,7 +101,8 @@
                 dataType: 'JSON',
                 complete: function (data) {
                     data = data.responseJSON;
-                    that.editor.setValue(data.fileContent, -1);
+                    if (data.fileContent != undefined)
+                        that.editor.setValue(data.fileContent, -1);
                 },
             });
         },

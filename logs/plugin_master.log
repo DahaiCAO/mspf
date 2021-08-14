@@ -1,1 +1,3 @@
-2021-08-10 09:10:47 proactor_events.py DEBUG     : 623 line - Using proactor: IocpProactor
+2021-08-14 09:52:44 pluginListener.py INFO      : 34 line - file deleted:D:\Plugin-codes\PaaSPluginFwk\plugins\SP_1426351934092222464
+2021-08-14 09:52:44 events.py INFO      : 510 line - Deleted file: D:\Plugin-codes\PaaSPluginFwk\plugins\SP_14263512021-08-14 09:2021-08-14 09:52:47 pluginListener.py INFO      : 34 line - file deleted:D:\Plugin-codes\PaaSPluginFwk\plugins\SP_1426350673766785024
+2021-08-14 09:52:47 events.py INFO      : 510 line - Deleted file: D:\Plugin-codes\PaaSPluginFwk\plugins\SP_1426350
