@@ -1,6 +1,6 @@
 # Micro Service Plugin framework (Mspf)
 
-Current version 0.1.0
+Current version 0.1.1
 
 This is an open-source plugin framework for python micro service in python. Developer can design and release their plugin in this framwork. This framework can be used as plugin market to support to manage numerous plugins.
 
@@ -27,5 +27,11 @@ This framework can run at Windows and Linux operation platform, the platform nee
    pip install python-socketio</li>
 </ul>
 
-Download mspf all in one project: 
-<a href="https://github.com/swinflowcloud/mspf/tree/main/common_html/downloads/PaaSPluginFwk.zip">download</a>
+0.1.0
+(1) released the basic version based on Django
+(2) can support the python code editing
+
+
+0.1.1
+(1) fixed the code editor bugs
+(2) completed the user mannual for development
