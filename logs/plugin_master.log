@@ -1,16 +1,10 @@
-2021-08-14 09:52:44 pluginListener.py INFO      : 34 line - file deleted:D:\Plugin-codes\PaaSPluginFwk\plugins\SP_1426351934092222464
-2021-08-14 09:52:44 events.py INFO      : 510 line - Deleted file: D:\Plugin-codes\PaaSPluginFwk\plugins\SP_14263512021-08-14 09:2021-08-14 09:52:47 pluginListener.py INFO      : 34 line - file deleted:D:\Plugin-codes\PaaSPluginFwk\plugins\SP_1426350673766785024
-2021-08-14 09:52:47 events.py INFO      : 510 line - Deleted file: D:\Plugin-codes\PaaSPluginFwk\plugins\SP_1426350673766785024
-2021-08-14 09:52:51 pluginListener.py INFO      : 34 line - file deleted:D:\Plugin-codes\PaaSPluginFwk\plugins\SP_1425989112497840128
-2021-08-14 09:52:51 events.py INFO      : 510 line - Deleted file: D:\Plugin-codes\PaaSPluginFwk\plugins\SP_1425989112497840128
-2021-08-14 10:45:55 pluginListener.py INFO      : 39 line - directory modified:D:\Plugin-codes\PaaSPluginFwk\plugins\SP_000000000000A4M0
-2021-08-14 10:45:55 events.py INFO      : 516 line - Modified directory: D:\Plugin-codes\PaaSPluginFwk\plugins\SP_000000000000A4M0
-2021-08-14 10:45:55 pluginListener.py INFO      : 39 line - directory modified:D:\Plugin-codes\PaaSPluginFwk\plugins\SP_000000000000A4NZ
-2021-08-14 10:45:55 events.py INFO      : 516 line - Modified directory: D:\Plugin-codes\PaaSPluginFwk\plugins\SP_000000000000A4NZ
-2021-08-14 10:46:46 proactor_events.py DEBUG     : 623 line - Using proactor: IocpProactor
-09:52:51 events.py INFO      : 510 line - Deleted file: D:\Plugin-codes\PaaSPluginFwk\plugins\SP_1425989112497840128
-2021-08-14 10:45:55 pluginListener.py INFO      : 39 line - directory modified:D:\Plugin-codes\PaaSPluginFwk\plugins\SP_000000000000A4M0
-2021-08-14 10:45:55 events.py INFO      : 516 line - Modified directory: D:\Plugin-codes\PaaSPluginFwk\plugins\SP_000000000000A4M0
-2021-08-14 10:45:55 pluginListener.py INFO      : 39 line - directory modified:D:\Plugin-codes\PaaSPluginFwk\plugins\SP_000000000000A4NZ
-2021-08-14 10:45:55 events.py INFO      : 516 line - Modified directory: D:\Plugin-codes\PaaSPluginFwk\plugins\SP_000000000000A4NZ
-2021-08-14 10:46:46 proactor_events.py DEBUG     : 623 line - Using proactor: IocpProactor
+2021-08-15 11:04:50 events.py INFO      : 516 line - Modified directory: D:\Plugin-codes\PaaSPluginFwk\plugins\SP_000000000000A4M0
+2021-08-15 11:04:50 pluginListener.py INFO      : 39 line - directory modified:D:\Plugin-codes\PaaSPluginFwk\plugins\SP_000000000000A4M0
+2021-08-15 11:04:50 events.py INFO      : 516 line - Modified directory: D:\Plugin-codes\PaaSPluginFwk\plugins\SP_000000000000A4NZ
+2021-08-15 11:04:50 pluginListener.py INFO      : 39 line - directory modified:D:\Plugin-codes\PaaSPluginFwk\plugins\SP_000000000000A4NZ
+2021-08-15 13:46:12 events.py INFO      : 516 line - Modified directory: D:\Plugin-codes\PaaSPluginFwk\plugins\SP_000000000000A4M0
+2021-08-15 13:46:12 pluginListener.py INFO      : 39 line - directory modified:D:\Plugin-codes\PaaSPluginFwk\plugins\SP_000000000000A4M0
+2021-08-15 13:46:12 events.py INFO      : 516 line - Modified directory: D:\Plugin-codes\PaaSPluginFwk\plugins\SP_000000000000A4NZ
+2021-08-15 13:46:12 pluginListener.py INFO      : 39 line - directory modified:D:\Plugin-codes\PaaSPluginFwk\plugins\SP_000000000000A4NZ
+G   : 224 line - Not Found: /help/static/base-plugins/bootstrap-5.1.0-dist/js/bootstrap.bundle.js
+2021-08-15 10:26:07 log.py WARNING   : 224 line - Not Found: /help/static/base-plugins/jquery.mCustomScrollbar.concat.min.js

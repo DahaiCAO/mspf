@@ -32,6 +32,9 @@ def docs(request):
 def download(request):
     return render(request, 'PaaSPluginFwk.zip')
 
+def help(request):
+    return render(request, 'help.html')
+
 @csrf_exempt
 def uploadPluginZipFile(request):
     if request.method == "POST":

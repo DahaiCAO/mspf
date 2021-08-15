@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate">
+    <meta name="keywords" content="Micro service, plugin, framework" />
+    <meta http-equiv="expires" content="0">
+    
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="../static/base-plugins/bootstrap-5.1.0-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/base-plugins/font-awesome-4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="../static/base-plugins/bootstrap-icons-1.5.0/bootstrap-icons.css">
+    <link rel="stylesheet" href="../static/base-plugins/jquery-ui-1.12.1/jquery-ui.css">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="../static/base-plugins/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" href="../static/css/sidebar.css">
+    <title>Mspf help document</title>
+</head>
+<body id="managerbody">
+  <div class="col-lg-8 mx-auto p-3 py-md-5">
+    <header class="d-flex align-items-center pb-3 mb-5 border-bottom">
+        <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
+        <img src="../static/img/logo_32x32.png" width="32" height="32"><title>Micro service plugin framework</title></svg>
+        <span class="fs-4">Micro service plugin framework (Mspf)</span>
+        </a>
+    </header>
+    <div class="d-flex flex-row">
+        <div class="flex-shrink-0 p-3 bg-white" style="width: 280px;">
+            <a href="/" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
+            <span class="fs-5 fw-semibold">用户手册</span>
+            </a>
+            <ul class="list-unstyled ps-0">
+                <li class="mb-1">
+                    <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
+                    引言
+                    </button>
+                    <div class="collapse show" id="home-collapse">
+                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                            <li><a href="#article-aim" class="link-dark rounded">编写目的</a></li>
+                            <li><a href="#rd-background" class="link-dark rounded">研发背景</a></li>
+                            <li><a href="#product-definition" class="link-dark rounded">概念术语</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="mb-1">
+                    <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="true">
+                    Mspf综述
+                    </button>
+                    <div class="collapse show" id="dashboard-collapse">
+                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                            <li><a href="#product-introduction" class="link-dark rounded">产品介绍</a></li>
+                            <li><a href="#run-environment" class="link-dark rounded">运行环境搭建</a></li>
+                            <li><a href="#download-code" class="link-dark rounded">下载代码</a></li>
+                            <li><a href="#dir-structure" class="link-dark rounded">项目目录结构</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="mb-1">
+                    <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="true">
+                    Mspf功能
+                    </button>
+                    <div class="collapse show" id="orders-collapse">
+                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                            <li><a href="#" class="link-dark rounded">主界面</a></li>
+                            <li><a href="#" class="link-dark rounded">上传插件</a></li>
+                            <li><a href="#" class="link-dark rounded">创建插件</a></li>
+                            <li><a href="#" class="link-dark rounded">删除插件</a></li>
+                            <li><a href="#" class="link-dark rounded">编辑插件信息</a></li>
+                            <li><a href="#" class="link-dark rounded">编辑插件源代码</a></li>
+                            <li><a href="#" class="link-dark rounded">下载插件源代码</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="border-top my-3"></li>
+                <li class="mb-1">
+                    <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="true">
+                    实战开发指南
+                    </button>
+                    <div class="collapse show" id="account-collapse">
+                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                            <li><a href="#" class="link-dark rounded">前端界面设计</a></li>
+                            <li><a href="#" class="link-dark rounded">后端接口设计</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <main class="">
+            <div class="row">
+            <h2 id="article-aim">编写目的</h2>
+            <p>
+                本文档是微服务插件框架（英文名称Micro service plugin framework，以下简称：Mspf）的用户手册。该手册用于讲解我们为什么要研发这样一个框架，以及讲解Mspf的产品定义和产品功能，用户如何使用它开发和发布自己的插件。本文档的读者群是具有开发能力的软件开发人员，开发人员具备前端开发能力，如熟悉HTML，JavaScript，CSS，DOM，Ajax等，以及VUE，Jquery，前端插件技术等，后端开发能力如Python语言，RESTful技术，Django技术，数据库技术等。 
+            </p>
+            <h2 id="rd-background">研发背景</h2>
+            <p>
+            当前云计算、大数据以及AI的发展，是软件信息化革命后的又一次软件智能化升级，是一次深度革命。未来，大数据应用以及AI应用不再是完整的信息化系统，而是多个相对独立的微服务应用，将智能化数据处理结果展示给用户。因此，微服务架构将是软件领域的主流技术架构的判断。
+            </p>
+            <p>
+            Python语言已经是大数据应用以及AI的主流开发语言，当前还没有一个成熟的支持Python语言的微服务插件的平台或框架。大量Python开发的应用均是独立的应用，移植性不好。
+            </p>
+            <p>
+            我们开发微服务框架，基于Django框架开发，每个微服务均是Django的一个APP，以RESTful形式接口提供JSON数据访问服务。在可预见的未来十年，AI和大数据微服务将遍布于全球互联网。而微服务框架将是支撑微服务运行的基础设施和平台。
+            </p>
+            <h2 id="product-definition">概念术语</h2>
+            <p>
+            微服务插件框架，这个概念分为两个层面，首先是微服务，其次是插件框架。微服务是从软件组织架构上来构建软件，插件是从软件技术框架上来构建软件，是从不同层面的构建软件。</p>
+            <p>
+            微服务，又叫微服务架构，是一种软件的架构方式和组织方法，其中软件由通过明确定义的 API 进行通信的小型独立服务组成，这些独立服务是按功能最小化原则进行划分的、具有自治能力的、具有互相通信能力的软件模块。</p>
+            <p>
+            微服务的特点</p>
+            <p>
+            解耦：系统内的软件各模块基于功能最小化原则被解耦。解耦后的系统将可轻易地通过组合被重构、修改和扩展。</p>
+            <p>
+            组合编排：系统解耦成微服务后，可以根据业务系统功能需求，实现灵活的组合和组装，快速搭建成符合特定需求的应用系统。</p>
+            <p>
+            组件化：微服务可以被看成相互独立的组件，可以通过独立的技术栈实现，而组件间通信基于REST API访问和通过JSON作为数据交换格式（这是当前事实上的软件访问标准和数据交换标准），组件作为整体的替换和内部功能的升级对其他组件是透明的。</p>
+            <p>
+            业务能力：微服务因功能最小化原则而构建，它们可专注于某种单一的功能，业务和功能边界清晰。</p>
+            <p>
+            自治：开发者和团队独立地、并行地工作，提高开发速度。</p>
+            <p>
+            持续交付：允许持续发布软件新版本，通过系统化的自动手段来创建、测试和批准新版本。</p>
+            <p>
+            去中心化管理：微服务的关注于使用正确的工具来完成正确的工作。这也就是说，没有标准化的方式或者技术模式。开发者们有权选择最好的工具来解决问题。</p>
+            <p>
+            敏捷性：微服务支持小型独立团队敏捷开发自己专注的服务，以自己熟悉的环境更迅速和快速的工作，以缩短开发周期。任何新功能都可以被快速开发或丢弃。</p>
+            <p>微服务的优势</p>
+            <p>独立开发：适合于小团队的快速独立开发出内聚性更高的独有的功能。</p>
+            <p>独立部署：基于它们所提供的服务，它们可以被独立地部署到应用中。</p>
+            <p>错误隔离：即便其中某个服务发生了故障，整个系统还可以继续工作。同时由于便于迅速定位错误原因，降低修复故障成本。</p>
+            <p>混合技术栈：可以使用不同技术栈为同一个应用构建不同的服务。队可以自由选择最佳工具来解决他们的具体问题。</p>
+            <p>按粒度扩展：可以根据需求扩展某一个组件，不需要将所有组件全部扩展。</p>
+            <p>重用性增强：将软件划分为小型且明确定义的微服务，可用于多种组合以满足不同的功能需求，开发人员无需从头开始编写代码。</p>
+            <p>插件，英文，Plug-in，又称addin、add-in、addon或add-on，又译外挂，是一种遵循一定规范的应用程序接口编写出来的一个或一组程序或程序包。其不能脱离指定的平台单独运行，只能运行在程序规定的系统平台下（可能同时支持多个平台）。因为插件需要调用原纯净系统提供的函数库或者数据。很多软件都有插件，插件有无数种。例如在IE中，安装相关的插件后，WEB浏览器能够直接调用插件程序，用于处理特定类型的文件。</p>
+            <p>插件的基本特点：</p>
+            <p>热插拔：支持动态的安装、启动、停止、更新和卸载，而整个系统无需重启。</p>
+            <p>适配性：动态的注册、获取和监听服务，使得系统能够在微服务插件环境调整自己的功能。</p>
+            <p>透明：提供了接口来监控插件内部状态，能够通过命令行进行调试。</p>
+            <p>版本化隔离：插件可以版本化，多版本能够共存而不会影响系统功能，解决了JAR hell的问题。</p>
+            <p>快速：插件类的加载速度快。</p>
+            <p>懒加载：本框架采用了很多懒加载机制。比如服务可以被注册，但是直到被使用时才创建，用即加载。</p>
+            <p>插件设计的优势：</p>
+            <p>结构清晰、易于理解：由于各个插件之间是相互独立的，所以结构非常清晰也更容易理解。良好地体现了微服务的解耦思想。</p>
+            <p>易修改、可维护性强：由于插件与宿主程序之间具有热插拔特点，软件结构很灵活，容易修改，方便软件的升级和维护。</p>
+            <p>可移植性强、重用力度大：插件本身也是由一系列小的功能结构组成，通过接口向外部提供自己的服务，可复用程度高，易于移植。</p>
+            <p>结构容易调整：系统功能的增加或减少，只需相应的增删插件，而不影响整个体系结构，能方便的实现结构调整，具有超强的组合能力。</p>
+            <p>插件之间的耦合度较低：插件通过与宿主程序通信来实现插件与插件，插件与宿主程序间的通信，插件之间的耦合度更低。</p>
+            <p>可以在软件开发的过程中修改应用程序：插件的结构支持在软件的开发过程中随时修改插件，也可在应用程序发行之后，通过补丁包的形式增删插件，通过这种形式达到修改应用程序的目的。</p>
+            <p>插件化思想已经在多个框架或者设计模式中得以实现，应用不同语言的插件框架也很多。基于Java语言开发的开放服务网关协议（Open Services Gateway initiative，简称OSGi）的插件框架，如Apache Felix，Equinox，均是优秀的插件框架。近年利用Springboot的注入原理开发的国产插件框架，也在成长。而基于Python语言的插件框架有PluginBase。</p>
+            <p>微服务的软件架构思想与插件的技术框架思想的结合，是未来软件开发的一个重要方向，特别是智能手机的普及和移动互联网的兴起，促使软件发展趋向为功能单一化，操作简单化，业务边界明确。Python语言近年的迅速普及，让软件开发的简单化成为新的趋势。一个功能只要从原来Java开发要数十行代码，到Python的数行代码。更促使软件开发团队小型化，甚至大量的个人软件开发极客，他们能够开发出大量具有专业性质的小软件服务，服务特定的行业和客户。这一趋势也孕育了微服务插件框架的市场要求。</p>
+            <h2 id="product-introduction">Mspf介绍</h2>
+            <p>Mspf是一个开源的能够支持面向Python语言的微服务插件的插件框架。Mspf基于Django开发。每个微服务插件都是一个Django的App。</p>
+            <p>这个插件框架具有以下特点：</p>
+            <p>（1）可直接热插拔到框架：用户可以上传和下载Django的App的zip文件到框架上，框架能够自动注册和加载；插件可以直接从框架删除，并自动注销；在框架上可创建一个Django的App插件，并注册到框架；</p>
+            <p>（2）框架提供App中的文件代码快速编辑功能，以支持快速开发Python微服务的前后端代码，前端代码可以是VUE，Django的template，也可以是HTML和DOM等，后端是Python代码，提供REST API接口注册。</p>
+            <p>当前Mspf是一个微服务插件框架的初级版本，对于微服务的特点以及插件框架的特点都还没有充分支持，随着深入的产品开发，上述特征将逐渐支持。</p>
+            <p>我们欢迎任何感兴趣的Python工程加入团队，为开源的框架做出贡献。</p>
+            <h2 id="run-environment">运行环境搭建</h2>
+            <p>Mspf支持跨平台运行，支持Windows和Linux，需要在平台上安装Python环境。</p>
+            <p>Python 3.9</p>
+            <p>Django-3.2.4</p>
+            <p>Watchdog 2.1.3</p>
+            <p>Configparser-5.0.2</p>
+            <p>Python-socketio</p>
+            <h2 id="download-codes">下载代码</h2>
+            <p>Mspf的完整代码在https://github.com/swinflowcloud/mspf，如下图所示，下载Download ZIP，就可以把完整代码下载下来。</p>
+            <p>
+            <img src="../static/img/img1.png">
+            </p>
+            <p>在bin目录下面，运行./startup.bat（Windows）或者./startup.sh（Linux），就可以运行来整个框架。</p>
+            <h2 id="dir-structure">项目目录结构</h2>
+            <p>打开项目，通过tree，来展示目录，每个目录的解释如下图所示：</p>
+            <p>
+            <img src="../static/img/img2.png">
+            </p>
+            <p></p>
+            <p></p>
+            <p></p>
+            </div>
+        </main>
+    </div>
+  </div>
+
+
+<!-- jQuery CDN - Slim version (=without AJAX) -->
+<script src="../static/base-plugins/jquery-3.5.1.min.js"></script>
+<script src="../static/base-plugins/jquery-ui-1.12.1/jquery-ui.js"></script>
+<!-- Popper.JS -->
+<script src="../static/base-plugins/popper.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="../static/base-plugins/bootstrap-5.1.0-dist/js/bootstrap.bundle.js"></script>
+<!-- jQuery Custom Scroller CDN -->
+<script src="../static/base-plugins/jquery.mCustomScrollbar.concat.min.js"></script>
+
+</body>
+</html>

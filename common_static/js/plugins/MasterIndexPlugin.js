@@ -45,7 +45,7 @@
             title.innerHTML = "Micro service plugin framework";
             var span = DomUtils.newelement(a, "span");
             span.className = "fs-4";
-            span.innerHTML = "Micro service plugin framework (Mspf) 0.1.0";
+            span.innerHTML = "Micro service plugin framework (Mspf)";
 
             var main = DomUtils.newelement(content, "main");
             var h1 = DomUtils.newelement(main, "h1");
@@ -58,7 +58,7 @@
             p1.className = "fs-5 col";
             var small = DomUtils.newelement(p1, "small");
             small.className = "text-muted";
-            small.innerHTML = "当前版本：0.1.0";
+            small.innerHTML = "当前版本：0.1.1";
             
             var buttonsdiv = DomUtils.newelement(main, "div");
             buttonsdiv.className = "d-flex align-items-stretch mb-4";

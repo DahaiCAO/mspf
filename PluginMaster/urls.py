@@ -4,8 +4,6 @@ from . import views
 urlpatterns = [
     path('', views.pluginIndex),
     path('pluginEditor', views.pluginEditor),
-    path('start', views.start),
-    path('stop', views.stop),
     path('service/s0/api0/', views.createPlugin), # insert
     path('service/s0/api1/', views.getAllPlugins), # query all
     path('service/s0/api2/', views.getPlugin), # query one 

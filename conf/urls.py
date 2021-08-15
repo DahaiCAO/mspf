@@ -23,6 +23,7 @@ from importlib import import_module
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index),
+    path('help/', views.help),
     path('index.html', views.index),
     path('example/', views.pluginExample),
     path('docs/', views.docs),
