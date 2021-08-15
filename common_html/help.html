@@ -16,12 +16,13 @@
     <link rel="stylesheet" href="../static/base-plugins/bootstrap-icons-1.5.0/bootstrap-icons.css">
     <link rel="stylesheet" href="../static/base-plugins/jquery-ui-1.12.1/jquery-ui.css">
     <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="../static/base-plugins/highlight-11.2.0-dist/styles/ir-black.min.css">
     <link rel="stylesheet" href="../static/base-plugins/jquery.mCustomScrollbar.min.css">
     <link rel="stylesheet" href="../static/css/sidebar.css">
     <title>Mspf help document</title>
 </head>
 <body id="managerbody">
-  <div class="col-lg-8 mx-auto p-3 py-md-5">
+  <div class="container p-3 py-md-5">
     <header class="d-flex align-items-center pb-3 mb-5 border-bottom">
         <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
         <img src="../static/img/logo_32x32.png" width="32" height="32"><title>Micro service plugin framework</title></svg>
@@ -29,7 +30,7 @@
         </a>
     </header>
     <div class="d-flex flex-row">
-        <div class="flex-shrink-0 p-3 bg-white" style="width: 280px;">
+        <div class="flex-shrink-0 p-3 bg-white" style="width:280px">
             <a href="/" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
             <span class="fs-5 fw-semibold">用户手册</span>
             </a>
@@ -65,9 +66,9 @@
                     </button>
                     <div class="collapse show" id="orders-collapse">
                         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                            <li><a href="#" class="link-dark rounded">主界面</a></li>
-                            <li><a href="#" class="link-dark rounded">上传插件</a></li>
-                            <li><a href="#" class="link-dark rounded">创建插件</a></li>
+                            <li><a href="#main-ui" class="link-dark rounded">主界面</a></li>
+                            <li><a href="#upload-plugin" class="link-dark rounded">上传插件</a></li>
+                            <li><a href="#create-plugin" class="link-dark rounded">创建插件</a></li>
                             <li><a href="#" class="link-dark rounded">删除插件</a></li>
                             <li><a href="#" class="link-dark rounded">编辑插件信息</a></li>
                             <li><a href="#" class="link-dark rounded">编辑插件源代码</a></li>
@@ -89,7 +90,7 @@
                 </li>
             </ul>
         </div>
-        <main class="">
+        <main style="width:1000px">
             <div class="row">
             <h2 id="article-aim">编写目的</h2>
             <p>
@@ -169,7 +170,7 @@
             <h2 id="download-codes">下载代码</h2>
             <p>Mspf的完整代码在https://github.com/swinflowcloud/mspf，如下图所示，下载Download ZIP，就可以把完整代码下载下来。</p>
             <p>
-            <img src="../static/img/img1.png">
+            <img src="../static/img/img1.png" style="width:100%">
             </p>
             <p>在bin目录下面，运行./startup.bat（Windows）或者./startup.sh（Linux），就可以运行来整个框架。</p>
             <h2 id="dir-structure">项目目录结构</h2>
@@ -177,8 +178,143 @@
             <p>
             <img src="../static/img/img2.png">
             </p>
-            <p></p>
-            <p></p>
+            <h2 id="main-ui">主界面</h2>
+            <p>Mspf框架启动起来后，在浏览器的地址栏中输入http://localhost:8899/</p>
+            <p>
+            <img src="../static/img/img3.png" style="width:100%">
+            </p>
+            <p>如上图所示，界面上有几个按钮：</p>
+            <p>快速入门按钮：点击按钮可以下载本文件。</p>
+            <p>下载Mspf按钮：点击按钮下载框架所有的代码。</p>
+            <p>创建微服务插件按钮：点击按钮可以创建插件，参见6.3节。</p>
+            <p>单机或将文件拖拽到此处按钮：将插件压缩文件拖动带此区域，直接上传并解压和注册插件。注册完成的插件，就可以直接访问了。</p>
+            <p>搜索框：输入一个字符串，可以模糊匹配出符合自己需要的插件列表。</p>
+            <p>下面是插件列表，这个插件列表默认列出来所有的已经注册的插件。插件基本信息卡片如下图所示：</p>
+            <p>
+            <img src="../static/img/img4.png">
+            </p>
+            <p>如上图所示，卡片最上方是图标，未来能够显示服务插件的前端页面。中间是插件的名称、版本和开发商。下面是插件的描述以及最后更新时间。</p>
+            <p>下面的一排小图标是操作按钮，第一个是预览图标，点击此图标是可以预览插件的主页。如下图所示：</p>
+            <p>
+            <img src="../static/img/img5.png">
+            </p>
+            <p>上面的插件的访问地址是http://ip:port/plugins.PluginID/，访问地址的结构，将在6.2节说明。</p>
+            <p>点击第二个图标，可以编辑插件的基本信息。详见6.5节。</p>
+            <p>点击第三个图标，可以编辑插件的源代码。详见6.6节。</p>
+            <p>点击第四个图标，可以删除插件，详见6.4节。</p>
+            <p>点击第五个图标，可以下载插件的源代码，详见6.7节。</p>
+            <h2 id="upload-plugin">上传插件</h2>
+            <p>点击上传单机或将文件拖拽到此处按钮，打开文件选择器。如下图所示，选择器中仅显示zip文件。</p>
+            <p>
+            <img src="../static/img/img6.png">
+            </p>
+            <p>下面讲解下插件的文件目录结构：</p>
+            <p>
+            <img src="../static/img/img7.png">
+            </p>
+            <p>上图中，static目录中，css保存CSS文件，img目录主要保存各种图片文件，jsplugins目录保存JavaScript的脚本文件。templates目录保存HTML页面，也保存Django的template文件，或者VUE文件。</p>
+            <p>如果要能成功上传一个插件文件包，文件包中需要包含如下图的文件：</p>
+            <p>
+            <img src="../static/img/img8.png">
+            </p>
+            <p>__pycache__目录是Django的生成的，这里不深入讲解。其余的文件均是Django生成的APP的文件。我们将在6.3节，详细介绍插件中所包含文件。</p>
+            <p>在上传的插件的apps.py文件中，需要特别指出的是apps.py文件的name属性。一般地通过Django的startapp命令生成的App的apps.py文件中，都是直接将app的名字放在class名和name属性。举例来说，一个生成的App的名字叫mytest，那么apps.py文件中的格式是：</p>
+            <p>
+            <pre style="width:100%"><code id="code1" class="language-python">from django.apps import AppConfig
+
+# Secondly run:apps.py
+# This file is used to configure current App's conf.
+
+class MytestConfig(AppConfig):
+    default_auto_field = 'django.db.models.BigAutoField'
+    name = 'Mytest'</code></pre>
+            </p>
+            <p>如果要把mytest这个App作为一个插件上传到Mspf，那么需要修改name属性为：</p>
+            <p>
+                <pre style="width:100%"><code id="code2" class="language-python">name = 'plugins.Mytest'</code></pre>
+            </p>
+            <p>然后将App打包后成ZIP文件后，就可以上传到Mspf框架。访问插件App需要在浏览器中输入：http://ip:port/plugins.Mytest/...</p>
+            <h2 id="create-plugin">创建插件</h2>
+            <p>创建插件功能是，Mspf框架提供的在线创建一个插件的功能。点击创建微服务插件，将打开如下窗口：</p>
+            <p>
+            <img src="../static/img/img9.png">
+            </p>
+            <p>如上图所示，输入插件名称等信息，尽管每个输入框都可以为空，但是尽量每个输入框都填写上信息。状态是未禁和已禁两种状态，这个目前初级版本未支持的。点击添加按钮，框架将创建一个插件，并在插件列表中展示出来。如下图所示，我们创建一个mytest插件：</p>
+            <p>
+            <img src="../static/img/img10.png">
+            </p>
+            <p>点击添加按钮后，如下图所示：</p>
+            <p>
+            <img src="../static/img/img11.png" style="width:100%">
+            </p>
+            <p>插件已经创建好，并且能够显示在插件列表中。点击预览，可以看到如下插件的页面：</p>
+            <p>
+            <img src="../static/img/img12.png">
+            </p>
+            <p>这意味着我们的插件已经创建好了。新创建好的插件中包括__init__.py，admin.py，apps.py，models.py，plugin.conf，tests.py，urls.py，views.py等文件，除plugin.conf之外。</p>
+            <p>一个新创建的插件中的文件如下，__init__.py内容：</p>
+            <p>
+            <img src="../static/img/img13.png">
+            </p>
+            <p>这个文件是App运行起来后，第一个执行的文件。</p>
+
+            <p>admin.py文件的内容：</p>
+            <p>
+            <img src="../static/img/img14.png">
+            </p>
+            <p>admin.py文件是App启动起来后，第四个执行的文件。</p>
+            <p>apps.py文件的内容：</p>
+            <p><img src="../static/img/img15.png"></p>
+            <p>apps.py文件是App执行起来后，第二个执行的文件。</p>
+            <p>models.py文件的内容是：</p>
+            <p>
+            <pre style="width:100%"><code id="code1" class="language-python">from django.db import models
+# Thirdly run:models.py
+# Create your models here.</code></pre>
+            </p>
+            <p>该文件是标准的Django的App生成的models.py。tests.py也是标准的Django的App生成文件。</p>
+            <p>urls.py文件中，有两个URL</p>
+            <p>
+<pre style="width:100%"><code id="code3" class="language-python">from django.urls import path
+from . import views
+
+# This file is used to defined RESTFul APIs:
+# path('hello/', views.hello)，that is http://localhost:port/hello,
+# direct to views.hello method，views.hello defined in views.py。
+# Fifthly run:urls.py 
+
+urlpatterns = [
+    path('', views.pluginIndex),
+    path('hello/', views.hello),
+]</code></pre>
+            </p>
+            <p>这个文件中，包含两个URL路径。第一个是默认路径，也就是说，在浏览器中输入http://ip:port/plugins.PluginID/就可以访问到views.pluginIndex方法，输入http://ip:port/plugins.PluginID/hello/，就可以访问到views.hello方法。例如，在浏览器中输入http://localhost:8899/plugins.SP_000000000000A4M0/，会出现如下图所示：</p>
+            <p>
+            <img src="../static/img/img16.png">
+            </p>
+            <p>同样，输入http://localhost:8899/plugins.SP_000000000000A4M0/hello，会出现如下图所示：</p>
+            <p><img src="../static/img/img17.png"></p>
+            <p>上述两个链接访问的URL，都是views.py的方法，或者叫函数。具体如下：</p>
+            <p>
+            <pre style="width:100%"><code id="code4" class="language-python">from django.shortcuts import render
+from django.http import HttpResponse,JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+# When getting requests from browers using ajax :views.py
+# this file is similar to controllers in srpingmvc or springboot
+# Create your views here.
+def pluginIndex(request):
+    return HttpResponse('Hi, this is a plugin!')
+
+def hello(request):
+    return HttpResponse('Hello, This is Mspf!')</code></pre>
+            </p>
+            <p>这个文件中，第一个方法就是在urls.py中定义的path('', views.pluginIndex)，第二个方法就是path('hello/', views.hello)。</p>
+            <p>用户可以在urls.py增加新的访问URL定义，并相应的在views.py中添加方法即可。</p>
+            <p>如在urls.py中添加，path('mytest/', views.test)，在views.py中添加：</p>
+            <p><pre style="width:100%"><code id="code4" class="language-python">def test(request):
+    return HttpResponse('Hello,This is mytest!')</code></pre></p>
+            <p>可以在浏览器中试一下，http://localhost:8899/plugins.SP_000000000000A4M0/test/</p>
+            <p>如果用户熟悉Django，将能够基于这个框架开发出更复杂的应用。</p>
             <p></p>
             </div>
         </main>
@@ -195,6 +331,11 @@
 <script src="../static/base-plugins/bootstrap-5.1.0-dist/js/bootstrap.bundle.js"></script>
 <!-- jQuery Custom Scroller CDN -->
 <script src="../static/base-plugins/jquery.mCustomScrollbar.concat.min.js"></script>
-
+<script src="../static/base-plugins/highlight-11.2.0-dist/highlight.min.js"></script>
+<script src="../static/base-plugins/highlight-11.2.0-dist/languages/python.min.js"></script>
+<script>
+hljs.highlightAll();
+</script>
+<!-- <script src="../static/base-plugins/clipboard-2.0.8-dist/js/clipboard.js"></script> -->
 </body>
 </html>
