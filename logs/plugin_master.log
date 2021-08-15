@@ -6,5 +6,20 @@
 2021-08-15 13:46:12 pluginListener.py INFO      : 39 line - directory modified:D:\Plugin-codes\PaaSPluginFwk\plugins\SP_000000000000A4M0
 2021-08-15 13:46:12 events.py INFO      : 516 line - Modified directory: D:\Plugin-codes\PaaSPluginFwk\plugins\SP_000000000000A4NZ
 2021-08-15 13:46:12 pluginListener.py INFO      : 39 line - directory modified:D:\Plugin-codes\PaaSPluginFwk\plugins\SP_000000000000A4NZ
-G   : 224 line - Not Found: /help/static/base-plugins/bootstrap-5.1.0-dist/js/bootstrap.bundle.js
+2021-08-15 14:10:40 proactor_events.py DEBUG     : 623 line - Using proactor: IocpProactor
+le.js
 2021-08-15 10:26:07 log.py WARNING   : 224 line - Not Found: /help/static/base-plugins/jquery.mCustomScrollbar.concat.min.js
+2021-08-15 10:32:12 log.py WARNING   : 224 line - Not Found: /help/static/img/logo_32x32.png
+2021-08-15 11:04:50 events.py INFO      : 516 line - Modified directory: D:\Plugin-codes\PaaSPluginFwk\plugins\SP_000000000000A4M0
+2021-08-15 11:04:50 pluginListener.py INFO      : 39 line - directory modified:D:\Plugin-codes\PaaSPluginFwk\plugins\SP_000000000000A4M0
+2021-08-15 11:04:50 events.py INFO      : 516 line - Modified directory: D:\Plugin-codes\PaaSPluginFwk\plugins\SP_000000000000A4NZ
+2021-08-15 11:04:50 pluginListener.py INFO      : 39 line - directory modified:D:\Plugin-codes\PaaSPluginFwk\plugins\SP_000000000000A4NZ
+2021-08-15 13:46:12 events.py INFO      : 516 line - Modified directory: D:\Plugin-codes\PaaSPluginFwk\plugins\SP_000000000000A4M0
+2021-08-15 13:46:12 pluginListener.py INFO      : 39 line - directory modified:D:\Plugin-codes\PaaSPluginFwk\plugins\SP_000000000000A4M0
+2021-08-15 13:46:12 events.py INFO      : 516 line - Modified directory: D:\Plugin-codes\PaaSPluginFwk\plugins\SP_000000000000A4NZ
+2021-08-15 13:46:12 pluginListener.py INFO      : 39 line - directory modified:D:\Plugin-codes\PaaSPluginFwk\plugins\SP_000000000000A4NZ
+2021-08-15 14:09:08 log.py WARNING   : 224 line - Not Found: /help/static/img/logo_32x32.png
+2021-08-15 14:09:08 log.py WARNING   : 224 line - Not Found: /help/static/img/logo_32x32.png
+2021-08-15 14:09:10 log.py WARNING   : 224 line - Not Found: /help/static/img/logo_32x32.png
+2021-08-15 14:09:19 log.py WARNING   : 224 line - Not Found: /help/static/img/logo_32x32.png
+2021-08-15 14:10:40 proactor_events.py DEBUG     : 623 line - Using proactor: IocpProactor
