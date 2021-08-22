@@ -1,6 +1,6 @@
 # Micro Service Plugin framework (Mspf)
 
-Current version 0.1.1
+Current version 0.1.2
 
 This is an open-source plugin framework for python micro service in python. Developer can design and release their plugin in this framwork. This framework can be used as plugin market to support to manage numerous plugins.
 
@@ -15,6 +15,9 @@ Features:
 Deployment requirements:
 
 This framework can run at Windows and Linux operation platform, the platform needs to install python environments.
+
+for development environments: 
+
 <ul>
 <li>Python 3.9</li>
 <li>Django-3.2.4:<br>
@@ -27,6 +30,15 @@ This framework can run at Windows and Linux operation platform, the platform nee
    pip install python-socketio</li>
 </ul>
 
+for production environments, we need the following components.
+
+<ul>
+<li>Nginx</li>
+<li>uwsgi</li>
+</ul>
+
+The depoyment guide is in the user manual.pdf
+
 0.1.0
 <ul>
 <li>(1) released the basic version based on Django</li>
@@ -38,3 +50,10 @@ This framework can run at Windows and Linux operation platform, the platform nee
 <li>(1) fixed the code editor bugs</li>
 <li>(2) completed the user mannual for development</li>
 </ul>
+
+0.1.2
+<ul>
+<li>(1) added the deployments for production environment</li>
+<li>(2) designed the uwsgi.ini</li>
+</ul>
+

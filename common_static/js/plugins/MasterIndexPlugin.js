@@ -58,7 +58,7 @@
             p1.className = "fs-5 col";
             var small = DomUtils.newelement(p1, "small");
             small.className = "text-muted";
-            small.innerHTML = "当前版本：0.1.1";
+            small.innerHTML = "当前版本：0.1.2";
             
             var buttonsdiv = DomUtils.newelement(main, "div");
             buttonsdiv.className = "d-flex align-items-stretch mb-4";
